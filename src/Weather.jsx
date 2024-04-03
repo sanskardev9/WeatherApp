@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Weather.css'
 
 const api = {
@@ -7,18 +7,28 @@ const api = {
 }
 
 const Weather = () => {
-  const [query, setQuery] = useState("");
+  const defaultlocation = "Faridabad"
+  const [query, setQuery] = useState(defaultlocation);
   const [weather, setWeather] = useState({});
+
+  useEffect(() => {
+    fetchWeatherData(query);
+  },[])
+  
 
   const search = (event)=>{
     if(event.key === "Enter"){
-        fetch(`${api.base}weather?q=${query.toLowerCase()}&units=metric&appid=${api.key}`)
-        .then(res=>res.json())
-        .then(result=>{
-            setWeather(result);
-            setQuery('');
-            console.log(result);
-        })
+      fetchWeatherData(query);
+    }
+  }
+
+  const fetchWeatherData = async(location) => {
+    try{
+      const response = await fetch(`${api.base}weather?q=${location.toLowerCase()}&units=metric&appid=${api.key}`);
+      const data = await response.json();
+      setWeather(data);
+    }catch(error){
+      console.error("Error fetching weather data:",error);
     }
   }
 
