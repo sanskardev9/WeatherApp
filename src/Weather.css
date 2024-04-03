@@ -106,7 +106,7 @@ main{
     font-weight: 700;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
 
     .location-box{
         margin-top: 180px;
@@ -117,9 +117,11 @@ main{
     }
     .location-box .date{
         font-size: 17px;
-        margin-left: 132px;
+        margin-left: 110px;
     }
     .weather-box{
         width: 360px;
+        margin-left: 20px;
     }
+    
 }
