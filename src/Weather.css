@@ -105,3 +105,21 @@ main{
     font-size: 48px;
     font-weight: 700;
 }
+
+@media screen and (max-width: 450px) {
+
+    .location-box{
+        margin-top: 180px;
+    }
+    .location-box .location {
+        font-size: 24px;
+        margin-left: 110px;
+    }
+    .location-box .date{
+        font-size: 17px;
+        margin-left: 132px;
+    }
+    .weather-box{
+        width: 360px;
+    }
+}
