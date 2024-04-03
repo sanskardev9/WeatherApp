@@ -13,6 +13,7 @@ const Weather = () => {
 
   useEffect(() => {
     fetchWeatherData(query);
+    setQuery('');
   },[])
   
 
